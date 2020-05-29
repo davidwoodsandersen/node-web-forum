@@ -1,0 +1,15 @@
+extends base.pug
+
+block content
+  div(class='centered-content')
+    div(class='block sm')
+      h1= 'Sign Up'
+      div
+        form(action='signup' method='post')
+          label(for'username')= 'Username'
+          input(type='text' name='username' autocomplete='username')
+          label(for'password')= 'Password'
+          input(type='password' name='password' autocomplete='password')
+          label(for'password2')= 'Repeat Password'
+          input(type='password' name='password2' autocomplete='password')
+          button(type='submit')= 'Sign Up'

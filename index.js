@@ -25,6 +25,10 @@ app.get('/signin', (req, res) => {
   res.render('signin');
 });
 
+app.get('/signup', (req, res) => {
+  res.render('signup');
+});
+
 app.listen(PORT, (err) => {
   if (err) {
     return console.log(`Server failed to start: ${err}`);
