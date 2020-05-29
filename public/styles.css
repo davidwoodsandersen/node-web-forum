@@ -61,12 +61,6 @@ body {
   flex-direction: column;
   height: 100%; }
 
-.wrapper {
-  width: 100%;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 20px; }
-
 main {
   flex: 1;
   width: 100%;
@@ -77,5 +71,25 @@ main {
 
 nav {
   background-color: #323232;
-  color: whitesmoke;
-  padding: 20px 0; }
+  color: whitesmoke; }
+  nav a {
+    color: whitesmoke;
+    text-decoration: none; }
+    nav a:hover {
+      color: white; }
+  nav .wrapper {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px; }
+    nav .wrapper h1 {
+      font-size: 20px;
+      font-weight: 700; }
+    nav .wrapper ul {
+      flex: 1;
+      text-align: right; }
+      nav .wrapper ul li {
+        display: inline-block;
+        margin: 0 0 0 20px; }

@@ -1,3 +1,22 @@
+-
+  var signedOutLinks = [
+    { name: 'Sign In', path: '/signin' },
+    { name: 'Sign Up', path: '/signup' }
+  ];
+  var signedInLinks = [
+    { name: 'Profile', path: '/profile' },
+    { name: 'New Forum', path: '/forum' },
+    { name: 'New Post', path: '/post' }
+  ];
 nav
   div(class='wrapper')
     h1= 'Web Forum'
+    ul
+      if signedIn
+        each link in signedInLinks
+          li
+            a(href=link.path)= link.name
+      else
+        each link in signedOutLinks
+          li
+            a(href=link.path)= link.name
