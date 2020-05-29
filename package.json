@@ -4,12 +4,20 @@
   "description": "Web forum app written in NodeJS.",
   "main": "index.js",
   "scripts": {
-    "serve": "node ./index.js"
+    "serve": "node ./index.js",
+    "styles": "./node_modules/.bin/gulp styles",
+    "styles:watch": "./node_modules/.bin/gulp watch"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "express": "^4.17.1",
     "pug": "^3.0.0"
+  },
+  "devDependencies": {
+    "gulp": "^4.0.2",
+    "gulp-concat": "^2.6.1",
+    "gulp-sass": "^4.1.0",
+    "node-sass": "^4.14.1"
   }
 }
