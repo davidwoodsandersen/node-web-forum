@@ -1,0 +1,18 @@
+version: '3'
+services:
+  web-forum:
+    container_name: web-forum
+    restart: always
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    ports:
+      - "3000:3000"
+    expose:
+      - "3000"
+    working_dir: /usr/src/app
+    volumes:
+      - ./:/usr/src/app:cached
+    environment:
+      PORT: 3000
+    command: npm run serve
