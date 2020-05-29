@@ -5,6 +5,8 @@ const express = require('express');
 const PORT = process.env.PORT || 3000;
 const app = express();
 
+app.set('view engine', 'pug');
+
 app.get('/ping', (req, res) => {
   res.json({
     message: 'OK',
@@ -12,6 +14,10 @@ app.get('/ping', (req, res) => {
     ip: req.ip,
     url: req.originalUrl
   });
+});
+
+app.get('/', (req, res) => {
+  res.render('signin');
 });
 
 app.listen(PORT, (err) => {
