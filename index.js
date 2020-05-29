@@ -18,7 +18,7 @@ app.get('/ping', (req, res) => {
 });
 
 app.get('/', (req, res) => {
-  res.redirect('/signin');
+  res.render('index');
 });
 
 app.get('/signin', (req, res) => {
