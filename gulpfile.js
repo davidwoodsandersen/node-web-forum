@@ -6,7 +6,7 @@ sass.compiler = require('node-sass');
 
 const paths = {
   styles: {
-    src: 'scss/**/*.scss',
+    src: 'views/scss/**/*.scss',
     dest: 'public/'
   }
 };
