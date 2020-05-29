@@ -1,0 +1,14 @@
+{
+  "name": "web-forum",
+  "version": "1.0.0",
+  "description": "Web forum app written in NodeJS.",
+  "main": "index.js",
+  "scripts": {
+    "serve": "node ./index.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
