@@ -1,0 +1,46 @@
+@import "../vars";
+
+form {
+  label {
+    display: block;
+    margin: 0 0 10px;
+    font-size: 14px;
+    font-weight: 700;
+  }
+
+  input[type="text"],
+  input[type="password"] {
+    display: block;
+    width: 100%;
+    padding: 12px;
+    margin: 0 0 10px;
+    font-family: $base-font-family;
+    font-size: $base-font-size;
+    border: 1px solid $medium-grey;
+    border-radius: $default-border-radius;
+
+    &:focus {
+      outline: none;
+      border-color: $accent-color;
+    }
+  }
+
+  button {
+    display: block;
+    width: 100%;
+    padding: 12px;
+    background-color: $white;
+    border-color: $accent-color;
+    border-radius: $default-border-radius;
+    color: $accent-color;
+    font-family: $base-font-family;
+    font-size: $base-font-size;
+    font-weight: 700;
+    cursor: pointer;
+
+    &:hover {
+      background-color: $accent-color;
+      color: $white;
+    }
+  }
+}

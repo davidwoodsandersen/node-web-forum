@@ -1,4 +1,13 @@
 extends base.pug
 
 block content
-  h1= 'Sign-in page'
+  div(class='centered-content')
+    div(class='block sm')
+      h1= 'Sign In'
+      div
+        form(action='/signin' method='post')
+          label(for='username')= 'Username'
+          input(type='text' name='username' autocomplete='username')
+          label(for='password')= 'Password'
+          input(type='password' name='password' autocomplete='password')
+          button(type='submit')= 'Sign In'

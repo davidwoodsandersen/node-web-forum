@@ -54,7 +54,8 @@ html, body {
 
 body {
   font-family: Helvetica, sans-serif;
-  font-size: 16px; }
+  font-size: 16px;
+  color: #323232; }
 
 #app {
   display: flex;
@@ -68,6 +69,64 @@ main {
   margin: 0 auto;
   padding: 20px; }
 
+.centered-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%; }
+
+.block {
+  border: 1px solid #e6e6e6;
+  border-radius: 4px; }
+  .block.sm {
+    max-width: 100%;
+    min-width: 400px; }
+  .block > h1 {
+    background-color: whitesmoke;
+    font-weight: 700;
+    border-bottom: 1px solid #e6e6e6;
+    border-radius: 4px 4px 0 0;
+    padding: 15px; }
+  .block > div {
+    padding: 15px; }
+
+
+form label {
+  display: block;
+  margin: 0 0 10px;
+  font-size: 14px;
+  font-weight: 700; }
+
+form input[type="text"],
+form input[type="password"] {
+  display: block;
+  width: 100%;
+  padding: 12px;
+  margin: 0 0 10px;
+  font-family: Helvetica, sans-serif;
+  font-size: 16px;
+  border: 1px solid #e6e6e6;
+  border-radius: 4px; }
+  form input[type="text"]:focus,
+  form input[type="password"]:focus {
+    outline: none;
+    border-color: #4f0eea; }
+
+form button {
+  display: block;
+  width: 100%;
+  padding: 12px;
+  background-color: white;
+  border-color: #4f0eea;
+  border-radius: 4px;
+  color: #4f0eea;
+  font-family: Helvetica, sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer; }
+  form button:hover {
+    background-color: #4f0eea;
+    color: white; }
 
 nav {
   background-color: #323232;

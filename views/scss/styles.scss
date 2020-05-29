@@ -8,6 +8,7 @@ html, body {
 body {
   font-family: $base-font-family;
   font-size: $base-font-size;
+  color: $dark-grey;
 }
 
 #app {
@@ -22,4 +23,33 @@ main {
   max-width: $content-max-width;
   margin: 0 auto;
   padding: 20px;
+}
+
+.centered-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+.block {
+  border: 1px solid $medium-grey;
+  border-radius: $default-border-radius;
+
+  &.sm {
+    max-width: 100%;
+    min-width: 400px;
+  }
+
+  > h1 {
+    background-color: $light-grey;
+    font-weight: 700;
+    border-bottom: 1px solid $medium-grey;
+    border-radius: $default-border-radius $default-border-radius 0 0;
+    padding: 15px;
+  }
+
+  > div {
+    padding: 15px;
+  }
 }
