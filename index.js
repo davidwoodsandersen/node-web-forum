@@ -1,6 +1,7 @@
 'use strict';
 
 const express = require('express');
+const routes = require('./routes');
 
 const PORT = process.env.PORT || 3000;
 const app = express();
@@ -8,26 +9,7 @@ const app = express();
 app.use(express.static('public'));
 app.set('view engine', 'pug');
 
-app.get('/ping', (req, res) => {
-  res.json({
-    message: 'OK',
-    timestamp: new Date().toISOString(),
-    ip: req.ip,
-    url: req.originalUrl
-  });
-});
-
-app.get('/', (req, res) => {
-  res.render('index');
-});
-
-app.get('/signin', (req, res) => {
-  res.render('signin');
-});
-
-app.get('/signup', (req, res) => {
-  res.render('signup');
-});
+app.use('/', routes);
 
 app.listen(PORT, (err) => {
   if (err) {
