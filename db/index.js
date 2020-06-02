@@ -1,24 +1,22 @@
 'use strict';
 
-const mysql = require('mysql');
+const mysql = require('promise-mysql');
 
-var connection;
+var pool;
 
-function connect(callback) {
-  connection = mysql.createConnection({
-    database: process.env.MYSQL_DB,
-    host: process.env.MYSQL_HOST,
-    user: process.env.MYSQL_USER,
-    password: process.env.MYSQL_PASSWORD
-  });
-  connection.connect(callback);
-}
-
-function query() {
-  connection.query(arguments);
+async function getConnection() {
+  if (!pool) {
+    pool = await mysql.createPool({
+      connectionLimit: process.env.MYSQL_CONN_LIMIT || 100,
+      host: process.env.MYSQL_HOST,
+      user: process.env.MYSQL_USER,
+      password: process.env.MYSQL_PASSWORD,
+      database: process.env.MYSQL_DB
+    });
+  }
+  return await pool.getConnection();
 }
 
 module.exports = {
-  connect,
-  query
-};
+  getConnection,
+}

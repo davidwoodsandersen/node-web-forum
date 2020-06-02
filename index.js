@@ -1,7 +1,6 @@
 'use strict';
 
 const express = require('express');
-const db = require('./db');
 const routes = require('./routes');
 
 const PORT = process.env.PORT || 3000;
@@ -12,14 +11,9 @@ app.set('view engine', 'pug');
 
 app.use('/', routes);
 
-db.connect((err) => {
+app.listen(PORT, (err) => {
   if (err) {
-    return console.log(`Error connecting to DB: ${err}`);
+    return console.log(`Server failed to start: ${err}`);
   }
-  app.listen(PORT, (err) => {
-    if (err) {
-      return console.log(`Server failed to start: ${err}`);
-    }
-    return console.log(`Server running on port ${PORT}`);
-  });
+  return console.log(`Server running on port ${PORT}`);
 });
