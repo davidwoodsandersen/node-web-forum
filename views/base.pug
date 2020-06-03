@@ -6,7 +6,20 @@ html
     link(rel='stylesheet' href='styles.css')
     title= 'Demo: Web Forum'
   body
+    if error && error.length
+      div(id='error')= error
+        a(href='javascript:void(0)')= 'OK'
     div(id='app')
       include components/nav.pug
       main
         block content
+    script(type='text/javascript').
+      var error = document.querySelector('#error');
+      if (error) {
+        var closeButton = error.querySelector('a');
+        if (closeButton) {
+          closeButton.addEventListener('click', function() {
+            error.parentElement.removeChild(error);
+          });
+        }
+      }

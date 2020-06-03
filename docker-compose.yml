@@ -15,10 +15,13 @@ services:
       - ./:/usr/src/app:cached
     environment:
       PORT: 3000
+      SESSION_NAME: sample
+      SESSION_SECRET: sample
       MYSQL_DB: forum
       MYSQL_HOST: db
       MYSQL_USER: admin
       MYSQL_PASSWORD: admin
+      MYSQL_CONN_LIMIT: 100
     depends_on:
       - wait
     command: npm run serve
@@ -32,6 +35,8 @@ services:
       MYSQL_DATABASE: forum
       MYSQL_USER: admin
       MYSQL_PASSWORD: admin
+    volumes:
+      - ./db/sql:/docker-entrypoint-initdb.d
     command: --default-authentication-plugin=mysql_native_password
 
   wait:
