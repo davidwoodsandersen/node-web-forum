@@ -3,8 +3,9 @@
 const db = require('../db');
 
 async function create(userData) {
+  var conn;
   try {
-    const conn = await db.getConnection()
+    conn = await db.getConnection()
       .catch(err => { throw err });
     await conn.query(
       'INSERT INTO user (username, password) VALUES (?, ?);',
@@ -15,6 +16,8 @@ async function create(userData) {
     return user;
   } catch (err) {
     throw new Error(err);
+  } finally {
+    if (conn) conn.release();
   }
 }
 
