@@ -2,6 +2,14 @@
 
 Demo web forum app written in NodeJS.
 
+## Getting Started
+
+To run locally you will need Node, Docker and Docker Compose installed:
+
+```
+npm install && docker-compose up
+```
+
 ## Tech Stack
 
 |Technology|Role|
