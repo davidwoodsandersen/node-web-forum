@@ -6,9 +6,14 @@ const session = require('express-session');
 const flash = require('connect-flash');
 const passport = require('./controllers/auth').passport;
 const routes = require('./routes');
+const seed = require('./db/seeder');
 
 const PORT = process.env.PORT || 3000;
 const app = express();
+
+(async () => {
+  if (process.env.SEED) seed();
+})();
 
 // Make the public directory available
 // from the client side:

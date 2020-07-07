@@ -14,6 +14,7 @@ services:
     volumes:
       - ./:/usr/src/app:cached
     environment:
+      SEED: 1
       PORT: 3000
       SESSION_NAME: sample
       SESSION_SECRET: sample
