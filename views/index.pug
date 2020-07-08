@@ -1,4 +1,17 @@
 extends base.pug
 
 block content
-  h1= 'Home page'
+  section
+    h1= 'Home'
+  aside
+    div(class='block mb')
+      h2= 'Top Contributors'
+      div(class='user-list')
+        each user in topContributors
+          a(class='user-row' href='/users/' + user.id)
+            div
+              div(class='avatar')
+                img(src='/avatars/' + user.avatarId + '.svg')
+              div(class='username')= user.username
+              div(class='posts')
+                span= user.posts

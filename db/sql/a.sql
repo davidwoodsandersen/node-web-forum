@@ -6,6 +6,7 @@ CREATE TABLE IF NOT EXISTS user (
 	id int NOT NULL AUTO_INCREMENT,
 	username varchar(30) NOT NULL UNIQUE,
 	password varchar(60) NOT NULL,
+	avatar_id int NOT NULL,
 
 	PRIMARY KEY (id)
 );

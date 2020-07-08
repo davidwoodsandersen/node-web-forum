@@ -33,8 +33,19 @@ router.get('/ping', (req, res) => {
   });
 });
 
-router.get('/', (req, res) => {
-  res.render('index', getVars(req));
+router.get('/', async (req, res) => {
+  try {
+    const topContributors = await userController.getTopContributors(10);
+    res.render('index', Object.assign(getVars(req), {
+      topContributors,
+    }));
+  } catch (err) {
+    console.log(err);
+    if (!err instanceof HttpError) {
+      err = new HttpError(httpStatus.INTERNAL_SERVER_ERROR, err.message);
+      res.status(err.code).send();
+    }
+  }
 });
 
 router.get('/signin', mustNotBeAuthenticated, (req, res) => {

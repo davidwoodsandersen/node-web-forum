@@ -1,6 +1,7 @@
 // Layout:
 $content-max-width: 1200px;
 $default-border-radius: 4px;
+$mobile-threshold: 800px;
 
 // Fonts:
 $base-font-family: Helvetica, sans-serif;
@@ -12,5 +13,6 @@ $dark-grey: rgb(50, 50, 50);
 $medium-grey: rgb(230, 230, 230);
 $light-grey: rgb(245, 245 ,245);
 $accent-color: rgb(79, 14, 234);
+$accent-color-light: rgb(240, 227, 247);
 $error-red: rgb(247, 163, 163);
 $error-red-dark: rgb(99, 25, 25);

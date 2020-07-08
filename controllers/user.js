@@ -4,6 +4,8 @@ const bcrypt = require('bcryptjs');
 const httpStatus = require('http-status-codes');
 const model = require('../models/user');
 const HttpError = require('../util/http-error');
+const util = require('../util');
+const constants = require('../constants');
 
 async function findByUsername(username) {
   return await model.findByUsername(username);
@@ -32,14 +34,21 @@ async function createUser(user) {
   }
   const username = user.username;
   const password = encryptPassword(user.password);
+  const avatarId = util.randomInRange(1, constants.AVATAR_ICON);
   return await model.create({
     username,
     password,
+    avatarId,
   });
+}
+
+async function getTopContributors(max) {
+  return await model.getTopContributors(max);
 }
 
 module.exports = {
   createUser,
   findByUsername,
+  getTopContributors,
   passwordMatches,
 };

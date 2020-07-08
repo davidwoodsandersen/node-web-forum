@@ -44,11 +44,33 @@ body {
 }
 
 main {
+  display: flex;
+  justify-content: center;
   flex: 1;
   width: 100%;
   max-width: $content-max-width;
   margin: 0 auto;
   padding: 20px;
+}
+
+@media (max-width: $mobile-threshold) {
+  main {
+    flex-direction: column;
+  }
+}
+
+section {
+  flex: 1;
+}
+
+aside {
+  width: 300px;
+}
+
+@media (max-width: $mobile-threshold) {
+  aside {
+    width: 100%;
+  }
 }
 
 .centered-content {
@@ -67,12 +89,24 @@ main {
     min-width: 400px;
   }
 
+  &.mb {
+    margin-bottom: 20px;
+  }
+
   > h1 {
     background-color: $light-grey;
     font-weight: 700;
     border-bottom: 1px solid $medium-grey;
     border-radius: $default-border-radius $default-border-radius 0 0;
     padding: 15px;
+  }
+
+  > h2 {
+    background-color: $light-grey;
+    font-weight: 700;
+    border-bottom: 1px solid $medium-grey;
+    border-radius: $default-border-radius $default-border-radius 0 0;
+    padding: 10px;
   }
 
   > div {
