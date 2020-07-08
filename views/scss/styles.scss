@@ -11,6 +11,20 @@ body {
   color: $dark-grey;
 }
 
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 700;
+}
+
+h1 {
+  font-size: 25px;
+  margin-bottom: 15px;
+}
+
+h2 {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
 #app {
   display: flex;
   flex-direction: column;
@@ -65,11 +79,13 @@ section {
 
 aside {
   width: 300px;
+  margin-left: 20px;
 }
 
 @media (max-width: $mobile-threshold) {
   aside {
     width: 100%;
+    margin-left: 0;
   }
 }
 
@@ -83,6 +99,11 @@ aside {
 .block {
   border: 1px solid $medium-grey;
   border-radius: $default-border-radius;
+
+  h2 {
+    font-size: $base-font-size;
+    margin: 0;
+  }
 
   &.sm {
     max-width: 100%;

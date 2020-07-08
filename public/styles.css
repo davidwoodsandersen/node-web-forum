@@ -57,6 +57,17 @@ body {
   font-size: 16px;
   color: #323232; }
 
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 700; }
+
+h1 {
+  font-size: 25px;
+  margin-bottom: 15px; }
+
+h2 {
+  font-size: 20px;
+  margin-bottom: 10px; }
+
 #app {
   display: flex;
   flex-direction: column;
@@ -102,11 +113,13 @@ section {
   flex: 1; }
 
 aside {
-  width: 300px; }
+  width: 300px;
+  margin-left: 20px; }
 
 @media (max-width: 800px) {
   aside {
-    width: 100%; } }
+    width: 100%;
+    margin-left: 0; } }
 
 .centered-content {
   display: flex;
@@ -117,6 +130,9 @@ aside {
 .block {
   border: 1px solid #e6e6e6;
   border-radius: 4px; }
+  .block h2 {
+    font-size: 16px;
+    margin: 0; }
   .block.sm {
     max-width: 100%;
     min-width: 400px; }
@@ -192,13 +208,48 @@ nav {
     padding: 20px; }
     nav .wrapper h1 {
       font-size: 20px;
-      font-weight: 700; }
+      font-weight: 700;
+      margin: 0; }
     nav .wrapper ul {
       flex: 1;
       text-align: right; }
       nav .wrapper ul li {
         display: inline-block;
         margin: 0 0 0 20px; }
+
+.topic-row {
+  text-decoration: none;
+  color: #323232; }
+  .topic-row .details {
+    flex: 1;
+    margin-right: 15px; }
+    .topic-row .details p {
+      padding: 8px;
+      font-size: 14px;
+      line-height: 1.4;
+      background-color: whitesmoke;
+      border-radius: 4px; }
+  .topic-row .posts {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: #f0e3f7;
+    font-weight: 700;
+    color: #4f0eea; }
+  .topic-row > div {
+    display: flex;
+    align-items: center;
+    padding: 15px;
+    border-radius: 4px;
+    border: 1px solid #e6e6e6;
+    margin-bottom: 15px; }
+    .topic-row > div:hover {
+      border-color: #4f0eea; }
+      .topic-row > div:hover h2 {
+        color: #4f0eea; }
 
 .user-row {
   text-decoration: none;
@@ -228,5 +279,5 @@ nav {
     .user-row > div:hover {
       border-color: #4f0eea;
       color: #4f0eea; }
-  .user-row:nth-child(2n) > div {
+  .user-row:nth-child(2n+1) > div {
     background-color: whitesmoke; }

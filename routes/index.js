@@ -4,6 +4,7 @@ const express = require('express');
 const httpStatus = require('http-status-codes');
 const HttpError = require('../util/http-error');
 const userController = require('../controllers/user');
+const topicController = require('../controllers/topic');
 const passport = require('../controllers/auth').passport;
 const router = express.Router();
 
@@ -35,8 +36,10 @@ router.get('/ping', (req, res) => {
 
 router.get('/', async (req, res) => {
   try {
+    const topics = await topicController.getPopular(10);
     const topContributors = await userController.getTopContributors(10);
     res.render('index', Object.assign(getVars(req), {
+      topics,
       topContributors,
     }));
   } catch (err) {

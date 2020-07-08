@@ -2,7 +2,16 @@ extends base.pug
 
 block content
   section
-    h1= 'Home'
+    h1= 'Topics'
+    div(class='topic-list')
+      each topic in topics
+        a(class='topic-row' href='/topics/' + topic.id)
+          div
+            div(class='details')
+              h2= topic.name
+              p= topic.description
+            div(class='posts')
+              span= topic.posts
   aside
     div(class='block mb')
       h2= 'Top Contributors'
