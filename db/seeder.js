@@ -4,6 +4,7 @@ const faker = require('faker');
 const user = require('../models/user');
 const topic = require('../models/topic');
 const post = require('../models/post');
+const comment = require('../models/comment');
 const util = require('../util');
 const constants = require('../constants');
 
@@ -31,6 +32,14 @@ module.exports = async function seed() {
         userId: util.randomInRange(1, constants.USER_SEED_COUNT),
         topicId: util.randomInRange(1, constants.TOPIC_SEED_COUNT),
         title: faker.lorem.words(),
+        body: faker.lorem.text()
+      });
+    }
+
+    for (var i = 0; i < constants.COMMENT_SEED_COUNT; i++) {
+      await comment.create({
+        userId: util.randomInRange(1, constants.USER_SEED_COUNT),
+        postId: util.randomInRange(1, constants.POST_SEED_COUNT),
         body: faker.lorem.text()
       });
     }

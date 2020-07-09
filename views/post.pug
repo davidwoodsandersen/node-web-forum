@@ -10,3 +10,12 @@ block content
       div(class='post-details')
         div(class='title')= post.title
         div(class='body')= post.body
+    each comment in comments
+      div(class='comment-divider')
+      div(class='comment')
+        a(href='/users/' + comment.userId)
+          div(class='author-panel')
+            div(class='author-avatar')
+              img(src='/avatars/' + comment.avatarId + '.svg')
+            div(class='author-username')= comment.username
+        div(class='comment-body')= comment.body

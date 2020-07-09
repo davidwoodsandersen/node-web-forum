@@ -1,0 +1,43 @@
+@import "../vars";
+
+.comment-divider {
+  width: 90%;
+  height: 40px;
+  margin: 0 auto;
+  border-left: 1px solid $medium-grey;
+}
+
+.comment {
+  display: flex;
+  border: 1px solid $medium-grey;
+  border-radius: $default-border-radius;
+
+  a {
+    text-decoration: none;
+  }
+
+  .author-panel {
+    padding: 20px;
+    max-width: 150px;
+    color: $dark-grey;
+  }
+
+  .author-avatar img {
+    display: block;
+    margin: 0 auto 15px;
+    width: 100px;
+    height: 100px;
+  }
+
+  .author-username {
+    font-size: 14px;
+    font-weight: 700;
+    text-align: center;
+    overflow-wrap: break-word;
+  }
+
+  .comment-body {
+    padding: 25px;
+    line-height: 1.5;
+  }
+}

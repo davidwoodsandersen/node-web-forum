@@ -31,3 +31,14 @@ CREATE TABLE IF NOT EXISTS post (
 	FOREIGN KEY (userId) REFERENCES user(id),
 	FOREIGN KEY (topicId) REFERENCES topic(id)
 );
+
+CREATE TABLE IF NOT EXISTS comment (
+	id int NOT NULL AUTO_INCREMENT,
+	userId int NOT NULL,
+	postId int NOT NULL,
+	body text,
+
+	PRIMARY KEY (id),
+	FOREIGN KEY (userId) REFERENCES user(id),
+	FOREIGN KEY (postId) REFERENCES post(id)
+);

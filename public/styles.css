@@ -159,6 +159,36 @@ aside {
     padding: 15px; }
 
 
+.comment-divider {
+  width: 90%;
+  height: 40px;
+  margin: 0 auto;
+  border-left: 1px solid #e6e6e6; }
+
+.comment {
+  display: flex;
+  border: 1px solid #e6e6e6;
+  border-radius: 4px; }
+  .comment a {
+    text-decoration: none; }
+  .comment .author-panel {
+    padding: 20px;
+    max-width: 150px;
+    color: #323232; }
+  .comment .author-avatar img {
+    display: block;
+    margin: 0 auto 15px;
+    width: 100px;
+    height: 100px; }
+  .comment .author-username {
+    font-size: 14px;
+    font-weight: 700;
+    text-align: center;
+    overflow-wrap: break-word; }
+  .comment .comment-body {
+    padding: 25px;
+    line-height: 1.5; }
+
 form label {
   display: block;
   margin: 0 0 10px;
