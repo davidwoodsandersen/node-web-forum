@@ -28,9 +28,27 @@ async function findByUsername(username) {
     conn = await db.getConnection()
       .catch(err => { throw err });
     const results = await conn.query(`
-      SELECT id, username, password, avatar_id
+      SELECT id, username, password, avatar_id AS avatarId
       FROM user WHERE username = ?;
     `, [username]).catch(err => { throw err });
+    const user = results && results.length ? results[0] : null;
+    return user;
+  } catch (err) {
+    throw new Error(err);
+  } finally {
+    if (conn) conn.release();
+  }
+}
+
+async function getById(id) {
+  var conn;
+  try {
+    conn = await db.getConnection()
+      .catch(err => { throw err });
+    const results = await conn.query(`
+      SELECT id, username, password, avatar_id AS avatarId
+      FROM user WHERE id = ?;
+    `, [id]).catch(err => { throw err });
     const user = results && results.length ? results[0] : null;
     return user;
   } catch (err) {
@@ -67,5 +85,6 @@ async function getTopContributors(max) {
 module.exports = {
   create,
   findByUsername,
+  getById,
   getTopContributors,
 };

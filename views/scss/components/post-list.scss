@@ -1,6 +1,6 @@
 @import "../vars";
 
-.post-list {
+.post-list.sm {
   font-size: 13px;
   line-height: 1.4;
 
@@ -43,5 +43,58 @@
   .post-details {
     flex: 1;
     margin-left: 10px;
+  }
+}
+
+.post-list.lg {
+  a {
+    text-decoration: none;
+    color: $dark-grey;
+  }
+
+  .post-row {
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    border: 1px solid $medium-grey;
+    border-radius: $default-border-radius;
+    margin-bottom: 20px;
+
+    &:hover {
+      border-color: $accent-color;
+
+      .post-icon img {
+        opacity: 1;
+      }
+    }
+  }
+
+  .post-icon img {
+    margin: 0 0 0 20px;
+    width: 60px;
+    height: 60px;
+    opacity: .7;
+  }
+
+  .post-details {
+    flex: 1;
+  }
+
+  .post-title {
+    margin-bottom: 8px;
+    font-size: 20px;
+    font-weight: 700;
+    color: $accent-color;
+  }
+
+  .post-date {
+    font-size: 13px;
+    margin-bottom: 12px;
+  }
+
+  .post-excerpt {
+    padding: 15px;
+    background-color: $light-grey;
+    border-radius: $default-border-radius;
   }
 }

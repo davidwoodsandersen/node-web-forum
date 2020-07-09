@@ -219,34 +219,74 @@ nav {
         display: inline-block;
         margin: 0 0 0 20px; }
 
-.post-list {
+.post-list.sm {
   font-size: 13px;
   line-height: 1.4; }
-  .post-list a {
+  .post-list.sm a {
     text-decoration: none;
     font-weight: 700;
     color: #323232; }
-    .post-list a:hover {
+    .post-list.sm a:hover {
       text-decoration: underline; }
-  .post-list .post-row {
+  .post-list.sm .post-row {
     display: flex;
     align-items: center;
     padding: 5px 10px;
     border-radius: 4px;
     border: 1px solid transparent; }
-    .post-list .post-row:nth-child(2n+1) {
+    .post-list.sm .post-row:nth-child(2n+1) {
       background-color: whitesmoke; }
-    .post-list .post-row:hover {
+    .post-list.sm .post-row:hover {
       border-color: #4f0eea; }
-  .post-list .post-title a {
+  .post-list.sm .post-title a {
     font-size: 16px;
     color: #4f0eea; }
-  .post-list .post-user img {
+  .post-list.sm .post-user img {
     width: 30px;
     height: 30px; }
-  .post-list .post-details {
+  .post-list.sm .post-details {
     flex: 1;
     margin-left: 10px; }
+
+.post-list.lg a {
+  text-decoration: none;
+  color: #323232; }
+
+.post-list.lg .post-row {
+  display: flex;
+  align-items: center;
+  padding: 20px;
+  border: 1px solid #e6e6e6;
+  border-radius: 4px;
+  margin-bottom: 20px; }
+  .post-list.lg .post-row:hover {
+    border-color: #4f0eea; }
+    .post-list.lg .post-row:hover .post-icon img {
+      opacity: 1; }
+
+.post-list.lg .post-icon img {
+  margin: 0 0 0 20px;
+  width: 60px;
+  height: 60px;
+  opacity: .7; }
+
+.post-list.lg .post-details {
+  flex: 1; }
+
+.post-list.lg .post-title {
+  margin-bottom: 8px;
+  font-size: 20px;
+  font-weight: 700;
+  color: #4f0eea; }
+
+.post-list.lg .post-date {
+  font-size: 13px;
+  margin-bottom: 12px; }
+
+.post-list.lg .post-excerpt {
+  padding: 15px;
+  background-color: whitesmoke;
+  border-radius: 4px; }
 
 .topic-row {
   text-decoration: none;
@@ -318,3 +358,15 @@ nav {
       color: #4f0eea; }
   .user-row:nth-child(2n+1) > div {
     background-color: whitesmoke; }
+
+.user-panel {
+  padding: 20px; }
+  .user-panel img {
+    display: block;
+    max-width: 100%;
+    margin: 0 auto 10px; }
+  .user-panel .username {
+    padding: 10px 0;
+    border-top: 1px solid #e6e6e6;
+    border-bottom: 1px solid #e6e6e6;
+    text-align: center; }

@@ -7,24 +7,10 @@ const userController = require('../controllers/user');
 const topicController = require('../controllers/topic');
 const postController = require('../controllers/post');
 const passport = require('../controllers/auth').passport;
+const mustBeAuthenticated = require('../util').mustBeAuthenticated;
+const mustNotBeAuthenticated = require('../util').mustNotBeAuthenticated;
+const getVars = require('../util').getVars;
 const router = express.Router();
-
-function mustBeAuthenticated(req, res, next) {
-  if (!req.user) return res.redirect('/signin');
-  next();
-}
-
-function mustNotBeAuthenticated(req, res, next) {
-  if (req.user) return res.redirect('/');
-  next();
-}
-
-function getVars(req) {
-  return {
-    signedIn: !!req.user,
-    error: req.flash('error')
-  }
-}
 
 router.get('/ping', (req, res) => {
   res.json({

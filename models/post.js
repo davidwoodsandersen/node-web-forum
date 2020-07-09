@@ -46,7 +46,27 @@ async function getRecent(max) {
   }
 }
 
+async function getByUserId(id, max) {
+  var conn;
+  try {
+    conn = await db.getConnection()
+      .catch(err => { throw err })
+    const results = await conn.query(`
+      SELECT * FROM post
+      WHERE user_id = ?
+      ORDER BY created DESC
+      LIMIT ?;
+    `, [id, max]).catch(err => { throw err });
+    return results;
+  } catch (err) {
+    throw new Error(err);
+  } finally {
+    if (conn) conn.release();
+  }
+}
+
 module.exports = {
   create,
+  getByUserId,
   getRecent,
 };

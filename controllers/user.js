@@ -11,6 +11,10 @@ async function findByUsername(username) {
   return await model.findByUsername(username);
 }
 
+async function getById(id) {
+  return await model.getById(id);
+}
+
 function passwordMatches(raw, hashed) {
   return bcrypt.compareSync(raw, hashed);
 }
@@ -49,6 +53,7 @@ async function getTopContributors(max) {
 module.exports = {
   createUser,
   findByUsername,
+  getById,
   getTopContributors,
   passwordMatches,
 };

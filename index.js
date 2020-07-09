@@ -6,6 +6,7 @@ const session = require('express-session');
 const flash = require('connect-flash');
 const passport = require('./controllers/auth').passport;
 const routes = require('./routes');
+const userRoutes = require('./routes/user');
 const seed = require('./db/seeder');
 
 const PORT = process.env.PORT || 3000;
@@ -38,6 +39,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.set('view engine', 'pug');
 
 app.use('/', routes);
+app.use('/users/', userRoutes);
 
 app.listen(PORT, (err) => {
   if (err) {

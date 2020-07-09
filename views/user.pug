@@ -1,0 +1,18 @@
+extends base.pug
+
+block content
+  aside(class='user-panel')
+    img(src='/avatars/' + user.avatarId + '.svg')
+    h1(class='username')= user.username
+  section
+    h1= 'Activity'
+    div(class='post-list lg')
+      each post in posts
+        a(href='/posts/' + post.id)
+          div(class='post-row')
+            div(class='post-details')
+              div(class='post-title')= post.title
+              div(class='post-date')= new Date(post.created).toLocaleString()
+              div(class='post-excerpt')= post.body.substring(0, 100) + (post.body.length > 100 ? '...' : '')
+            div(class='post-icon')
+              img(src='/icons/chat2.svg')
