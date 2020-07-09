@@ -10,7 +10,12 @@ async function getByUserId(id, max) {
   return await model.getByUserId(id, max);
 }
 
+async function getByTopicId(id) {
+  return await model.getByTopicId(id);
+}
+
 module.exports = {
+  getByTopicId,
   getByUserId,
   getRecent,
 };

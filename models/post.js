@@ -36,8 +36,20 @@ async function getByUserId(id, max) {
   `, [id, max]);
 }
 
+async function getByTopicId(id) {
+  return await db.runQuery(`
+    SELECT
+      p.*,
+      u.avatar_id AS avatarId
+    FROM post p
+    LEFT JOIN user u ON u.id = p.user_id
+    WHERE p.topic_id = ?;
+  `, [id]);
+}
+
 module.exports = {
   create,
+  getByTopicId,
   getByUserId,
   getRecent,
 };

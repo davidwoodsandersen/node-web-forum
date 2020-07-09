@@ -68,6 +68,9 @@ h2 {
   font-size: 20px;
   margin-bottom: 10px; }
 
+p {
+  margin-bottom: 10px; }
+
 #app {
   display: flex;
   flex-direction: column;
@@ -283,10 +286,19 @@ nav {
   font-size: 13px;
   margin-bottom: 12px; }
 
+.post-list.lg .post-avatar img {
+  width: 60px;
+  height: 60px;
+  margin: 0 20px 0 0; }
+
 .post-list.lg .post-excerpt {
   padding: 15px;
   background-color: whitesmoke;
   border-radius: 4px; }
+
+@media (max-width: 800px) {
+  .post-list.lg .post-icon {
+    display: none; } }
 
 .topic-row {
   text-decoration: none;

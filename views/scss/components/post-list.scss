@@ -92,9 +92,21 @@
     margin-bottom: 12px;
   }
 
+  .post-avatar img {
+    width: 60px;
+    height: 60px;
+    margin: 0 20px 0 0;
+  }
+
   .post-excerpt {
     padding: 15px;
     background-color: $light-grey;
     border-radius: $default-border-radius;
+  }
+}
+
+@media (max-width: $mobile-threshold) {
+  .post-list.lg .post-icon {
+    display: none;
   }
 }

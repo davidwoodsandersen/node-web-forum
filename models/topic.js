@@ -23,7 +23,17 @@ async function getPopular(max) {
   `, [max]);
 }
 
+async function getById(id) {
+  const results = await db.runQuery(
+    'SELECT * FROM topic WHERE id = ?;',
+    [id]
+  );
+  const topic = results && results.length ? results[0] : null;
+  return topic;
+}
+
 module.exports = {
   create,
+  getById,
   getPopular,
 };
