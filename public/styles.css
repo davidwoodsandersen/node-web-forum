@@ -249,9 +249,13 @@ nav {
 .topic-row {
   text-decoration: none;
   color: #323232; }
+  .topic-row .topic-icon img {
+    width: 50px;
+    height: 50px;
+    opacity: .8; }
   .topic-row .details {
     flex: 1;
-    margin-right: 15px; }
+    margin: 0 15px; }
     .topic-row .details p {
       padding: 8px;
       font-size: 14px;
@@ -279,6 +283,8 @@ nav {
       border-color: #4f0eea; }
       .topic-row > div:hover h2 {
         color: #4f0eea; }
+      .topic-row > div:hover .topic-icon img {
+        opacity: 1; }
 
 .user-row {
   text-decoration: none;
