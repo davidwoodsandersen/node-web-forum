@@ -14,6 +14,20 @@ block content
               span= topic.posts
   aside
     div(class='block mb')
+      h2= 'Recent Posts'
+      div(class='post-list')
+        each post in recentPosts
+          div(class='post-row')
+            div(class='post-user')
+              a(href='/users/' + post.userId)
+                img(src='/avatars/' + post.avatarId + '.svg' title=post.username)
+            div(class='post-details')
+              div(class='post-title')
+                a(href='/posts/' + post.id)= post.title
+              div(class='post-topic')
+                span= 'In '
+                a(href='/topics/' + post.topicId)= post.topicName
+    div(class='block mb')
       h2= 'Top Contributors'
       div(class='user-list')
         each user in topContributors

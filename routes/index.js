@@ -5,6 +5,7 @@ const httpStatus = require('http-status-codes');
 const HttpError = require('../util/http-error');
 const userController = require('../controllers/user');
 const topicController = require('../controllers/topic');
+const postController = require('../controllers/post');
 const passport = require('../controllers/auth').passport;
 const router = express.Router();
 
@@ -38,9 +39,11 @@ router.get('/', async (req, res) => {
   try {
     const topics = await topicController.getPopular(10);
     const topContributors = await userController.getTopContributors(10);
+    const recentPosts = await postController.getRecent(5);
     res.render('index', Object.assign(getVars(req), {
       topics,
       topContributors,
+      recentPosts,
     }));
   } catch (err) {
     console.log(err);

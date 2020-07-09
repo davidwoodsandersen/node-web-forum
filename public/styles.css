@@ -217,6 +217,35 @@ nav {
         display: inline-block;
         margin: 0 0 0 20px; }
 
+.post-list {
+  font-size: 13px;
+  line-height: 1.4; }
+  .post-list a {
+    text-decoration: none;
+    font-weight: 700;
+    color: #323232; }
+    .post-list a:hover {
+      text-decoration: underline; }
+  .post-list .post-row {
+    display: flex;
+    align-items: center;
+    padding: 5px 10px;
+    border-radius: 4px;
+    border: 1px solid transparent; }
+    .post-list .post-row:nth-child(2n+1) {
+      background-color: whitesmoke; }
+    .post-list .post-row:hover {
+      border-color: #4f0eea; }
+  .post-list .post-title a {
+    font-size: 16px;
+    color: #4f0eea; }
+  .post-list .post-user img {
+    width: 30px;
+    height: 30px; }
+  .post-list .post-details {
+    flex: 1;
+    margin-left: 10px; }
+
 .topic-row {
   text-decoration: none;
   color: #323232; }

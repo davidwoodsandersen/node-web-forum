@@ -24,6 +24,7 @@ CREATE TABLE IF NOT EXISTS post (
 	user_id int NOT NULL,
 	topic_id int NOT NULL,
 	title varchar(250) NOT NULL,
+	created DATETIME DEFAULT CURRENT_TIMESTAMP,
 	body text,
 
 	PRIMARY KEY (id),
