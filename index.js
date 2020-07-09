@@ -8,6 +8,7 @@ const passport = require('./controllers/auth').passport;
 const routes = require('./routes');
 const userRoutes = require('./routes/user');
 const topicRoutes = require('./routes/topic');
+const postRoutes = require('./routes/post');
 const seed = require('./db/seeder');
 
 const PORT = process.env.PORT || 3000;
@@ -42,6 +43,7 @@ app.set('view engine', 'pug');
 app.use('/', routes);
 app.use('/users/', userRoutes);
 app.use('/topics/', topicRoutes);
+app.use('/posts/', postRoutes);
 
 app.listen(PORT, (err) => {
   if (err) {

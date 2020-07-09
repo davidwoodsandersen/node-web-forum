@@ -4,25 +4,34 @@ const db = require('../db');
 
 async function create(postData) {
   await db.runQuery(
-    'INSERT INTO post (user_id, topic_id, title, body) VALUES (?, ?, ?, ?);',
+    'INSERT INTO post (userId, topicId, title, body) VALUES (?, ?, ?, ?);',
     [postData.userId, postData.topicId, postData.title, postData.body]
   );
+}
+
+async function getById(id) {
+  const results = await db.runQuery(
+    'SELECT * FROM post WHERE id = ?;',
+    [id]
+  );
+  const post = results && results.length ? results[0] : null;
+  return post;
 }
 
 async function getRecent(max) {
   return await db.runQuery(`
     SELECT
       p.id,
-      p.user_id AS userId,
+      p.userId,
       u.username AS username,
-      u.avatar_id AS avatarId,
-      p.topic_id AS topicId,
+      u.avatarId,
+      p.topicId,
       t.name AS topicName,
       p.title,
       p.created
     FROM post p
-    LEFT JOIN topic t ON t.id = p.topic_id
-    LEFT JOIN user u ON u.id = p.user_id
+    LEFT JOIN topic t ON t.id = p.topicId
+    LEFT JOIN user u ON u.id = p.userId
     ORDER BY p.created DESC LIMIT ?;
   `, [max]);
 }
@@ -30,7 +39,7 @@ async function getRecent(max) {
 async function getByUserId(id, max) {
   return await db.runQuery(`
     SELECT * FROM post
-    WHERE user_id = ?
+    WHERE userId = ?
     ORDER BY created DESC
     LIMIT ?;
   `, [id, max]);
@@ -40,15 +49,16 @@ async function getByTopicId(id) {
   return await db.runQuery(`
     SELECT
       p.*,
-      u.avatar_id AS avatarId
+      u.avatarId
     FROM post p
-    LEFT JOIN user u ON u.id = p.user_id
-    WHERE p.topic_id = ?;
+    LEFT JOIN user u ON u.id = p.userId
+    WHERE p.topicId = ?;
   `, [id]);
 }
 
 module.exports = {
   create,
+  getById,
   getByTopicId,
   getByUserId,
   getRecent,

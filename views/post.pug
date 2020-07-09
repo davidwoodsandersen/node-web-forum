@@ -1,0 +1,12 @@
+extends base.pug
+
+block content
+  section
+    div(class='post')
+      div(class='author-panel')
+        div(class='author-avatar')
+          img(src='/avatars/' + author.avatarId + '.svg')
+        div(class='author-username')= author.username
+      div(class='post-details')
+        div(class='title')= post.title
+        div(class='body')= post.body

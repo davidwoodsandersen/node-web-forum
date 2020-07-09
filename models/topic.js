@@ -17,7 +17,7 @@ async function getPopular(max) {
       t.description,
       COUNT(*) AS posts
     FROM topic t
-    LEFT JOIN post p ON t.id = p.topic_id
+    LEFT JOIN post p ON t.id = p.topicId
     GROUP BY t.id
     ORDER BY COUNT(*) DESC LIMIT ?;
   `, [max]);

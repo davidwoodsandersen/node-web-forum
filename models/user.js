@@ -4,14 +4,14 @@ const db = require('../db');
 
 async function create(userData) {
   await db.runQuery(`
-    INSERT INTO user (username, password, avatar_id)
+    INSERT INTO user (username, password, avatarId)
     VALUES (?, ?, ?);
   `, [userData.username, userData.password, userData.avatarId])
 }
 
 async function findByUsername(username) {
   const results = await db.runQuery(`
-    SELECT id, username, password, avatar_id AS avatarId
+    SELECT id, username, password, avatarId
     FROM user WHERE username = ?;
   `, [username]);
   const user = results && results.length ? results[0] : null;
@@ -20,7 +20,7 @@ async function findByUsername(username) {
 
 async function getById(id) {
   const results = await db.runQuery(`
-    SELECT id, username, password, avatar_id AS avatarId
+    SELECT id, username, password, avatarId
     FROM user WHERE id = ?;
   `, [id]);
   const user = results && results.length ? results[0] : null;
@@ -32,11 +32,11 @@ async function getTopContributors(max) {
     SELECT
       u.id,
       u.username,
-      u.avatar_id AS avatarId,
+      u.avatarId,
       COUNT(*) AS posts
     FROM post p
-    LEFT JOIN user u ON u.id = p.user_id
-    GROUP BY p.user_id
+    LEFT JOIN user u ON u.id = p.userId
+    GROUP BY p.userId
     ORDER BY COUNT(*) DESC LIMIT ?;
   `, [max]);
 }
