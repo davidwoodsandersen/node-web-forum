@@ -10,7 +10,8 @@
   ];
 nav
   div(class='wrapper')
-    h1= 'Web Forum'
+    h1
+      a(href='/')= 'Web Forum'
     ul
       if signedIn
         each link in signedInLinks

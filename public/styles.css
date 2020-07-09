@@ -140,12 +140,14 @@ aside {
     margin-bottom: 20px; }
   .block > h1 {
     background-color: whitesmoke;
+    font-size: 20px;
     font-weight: 700;
     border-bottom: 1px solid #e6e6e6;
     border-radius: 4px 4px 0 0;
     padding: 15px; }
   .block > h2 {
     background-color: whitesmoke;
+    font-size: 16px;
     font-weight: 700;
     border-bottom: 1px solid #e6e6e6;
     border-radius: 4px 4px 0 0;
