@@ -17,6 +17,21 @@ async function getConnection() {
   return await pool.getConnection();
 }
 
+async function runQuery(query, props) {
+  var conn;
+  try {
+    conn = await getConnection()
+      .catch(err => { throw err });
+    const results = await conn.query(query, props)
+      .catch(err => { throw err });
+    return results;
+  } catch (err) {
+    throw new Error(err);
+  } finally {
+    if (conn) conn.release();
+  }
+}
+
 module.exports = {
-  getConnection,
+  runQuery,
 }
