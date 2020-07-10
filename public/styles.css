@@ -124,6 +124,19 @@ aside {
     width: 100%;
     margin-left: 0; } }
 
+textarea {
+  width: 100%;
+  min-height: 100px;
+  padding: 15px;
+  border: 1px solid #e6e6e6;
+  border-radius: 4px;
+  margin-bottom: 10px;
+  font-size: 16px;
+  font-family: Helvetica, sans-serif; }
+  textarea:focus {
+    outline: none;
+    border-color: #4f0eea; }
+
 .centered-content {
   display: flex;
   align-items: center;

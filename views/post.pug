@@ -19,3 +19,12 @@ block content
               img(src='/avatars/' + comment.avatarId + '.svg')
             div(class='author-username')= comment.username
         div(class='comment-body')= comment.body
+    if signedIn
+      div(class='comment-divider')
+      div(class='block')
+        h2= 'Leave a comment'
+        div
+          form(action='/comments/create' method='post')
+            input(type='hidden' name='post' value=post.id)
+            textarea(name='comment')
+            button(type='submit')= 'Submit'

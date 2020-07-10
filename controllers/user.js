@@ -38,7 +38,7 @@ async function createUser(user) {
   }
   const username = user.username;
   const password = encryptPassword(user.password);
-  const avatarId = util.randomInRange(1, constants.AVATAR_ICON);
+  const avatarId = util.randomInRange(1, constants.AVATAR_COUNT);
   return await model.create({
     username,
     password,

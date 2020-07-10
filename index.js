@@ -9,6 +9,7 @@ const routes = require('./routes');
 const userRoutes = require('./routes/user');
 const topicRoutes = require('./routes/topic');
 const postRoutes = require('./routes/post');
+const commentRoutes = require('./routes/comment');
 const seed = require('./db/seeder');
 
 const PORT = process.env.PORT || 3000;
@@ -44,6 +45,7 @@ app.use('/', routes);
 app.use('/users/', userRoutes);
 app.use('/topics/', topicRoutes);
 app.use('/posts/', postRoutes);
+app.use('/comments/', commentRoutes);
 
 app.listen(PORT, (err) => {
   if (err) {

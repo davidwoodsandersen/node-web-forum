@@ -7,6 +7,7 @@ async function create(userData) {
     INSERT INTO user (username, password, avatarId)
     VALUES (?, ?, ?);
   `, [userData.username, userData.password, userData.avatarId])
+  return await findByUsername(userData.username);
 }
 
 async function findByUsername(username) {
