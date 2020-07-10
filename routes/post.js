@@ -17,18 +17,18 @@ router.get('/:id', async (req, res) => {
     }
     const author = await userController.getById(post.userId);
     const comments = await commentController.getByPostId(post.id);
-    res.render('post', Object.assign(getVars(req), {
+    res.render('post', getVars(req, {
       post,
       author,
       comments,
-    }));
+    }))
   } catch (err) {
     console.log(err);
     err = new HttpError(err.message, err.code);
-    res.status(err.code).render('error', {
+    res.status(err.code).render('error', getVars(req, {
       message: err.message,
       code: err.code
-    });
+    }));
   }
 });
 

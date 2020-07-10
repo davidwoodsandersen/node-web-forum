@@ -34,10 +34,10 @@ router.get('/', async (req, res) => {
   } catch (err) {
     console.log(err);
     err = new HttpError(err.message, err.code);
-    res.status(err.code).render('error', {
+    res.status(err.code).render('error', getVars(req, {
       message: err.message,
       code: err.code
-    });
+    }));
   }
 });
 

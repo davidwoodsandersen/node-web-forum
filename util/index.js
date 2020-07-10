@@ -16,11 +16,12 @@ function mustNotBeAuthenticated(req, res, next) {
   next();
 }
 
-function getVars(req) {
-  return {
+function getVars(req, props = {}) {
+  const defaults = {
     signedIn: !!req.user,
     error: req.flash('error')
-  }
+  };
+  return Object.assign(defaults, props);
 }
 
 module.exports = {

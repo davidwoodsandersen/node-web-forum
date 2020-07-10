@@ -15,17 +15,17 @@ router.get('/:id', async (req, res) => {
       throw new HttpError('User not found.', httpStatus.NOT_FOUND);
     }
     const posts = await postController.getByUserId(req.params.id, 30);
-    res.render('user', Object.assign(getVars(req), {
+    res.render('user', getVars(req, {
       user,
       posts,
     }));
   } catch (err) {
     console.log(err);
     err = new HttpError(err.message, err.code);
-    res.status(err.code).render('error', {
+    res.status(err.code).render('error', getVars(req, {
       message: err.message,
       code: err.code
-    });
+    }));
   }
 });
 
