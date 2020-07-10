@@ -363,10 +363,13 @@ nav {
   align-items: start;
   border: 1px solid #e6e6e6;
   border-radius: 4px; }
+  .post a {
+    text-decoration: none; }
   .post .author-panel {
     width: 250px;
     padding: 20px;
-    background-color: whitesmoke; }
+    background-color: whitesmoke;
+    color: #323232; }
     .post .author-panel .author-avatar img {
       display: block;
       margin: 0 auto 10px;
@@ -487,6 +490,4 @@ nav {
     margin: 0 auto 10px; }
   .user-panel .username {
     padding: 10px 0;
-    border-top: 1px solid #e6e6e6;
-    border-bottom: 1px solid #e6e6e6;
     text-align: center; }

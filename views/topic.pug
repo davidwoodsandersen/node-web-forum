@@ -2,8 +2,10 @@ extends base.pug
 
 block content
   section
-    h1= topic.name
-    p= topic.description
+    div(class='block mb')
+      h1= topic.name
+      div
+        p= topic.description
     div(class='post-list lg')
       each post in posts
         a(href='/posts/' + post.id)

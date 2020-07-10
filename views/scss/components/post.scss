@@ -6,10 +6,15 @@
   border: 1px solid $medium-grey;
   border-radius: $default-border-radius;
 
+  a {
+    text-decoration: none;
+  }
+
   .author-panel {
     width: 250px;
     padding: 20px;
     background-color: $light-grey;
+    color: $dark-grey;
 
     .author-avatar img {
       display: block;
