@@ -11,6 +11,9 @@ const router = express.Router();
 router.get('/:id', async (req, res) => {
   try {
     const topic = await topicController.getById(req.params.id);
+    if (!topic) {
+      throw new HttpError('Topic not found.', httpStatus.NOT_FOUND);
+    }
     const posts = await postController.getByTopicId(req.params.id);
     res.render('topic', Object.assign(getVars(req), {
       topic,
@@ -18,9 +21,10 @@ router.get('/:id', async (req, res) => {
     }));
   } catch (err) {
     console.log(err);
-    err = new HttpError(err);
+    err = new HttpError(err.message, err.code);
     res.status(err.code).render('error', {
-      message: err.message
+      message: err.message,
+      code: err.code
     });
   }
 });

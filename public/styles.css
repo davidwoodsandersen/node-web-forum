@@ -99,6 +99,14 @@ p {
     font-weight: 700;
     color: #631919; }
 
+.error-icon {
+  display: block;
+  width: 300px;
+  height: 300px;
+  max-width: 100%;
+  max-height: 100%;
+  margin-bottom: 20px; }
+
 main {
   display: flex;
   justify-content: center;
@@ -142,6 +150,8 @@ textarea {
   align-items: center;
   justify-content: center;
   height: 100%; }
+  .centered-content.column {
+    flex-direction: column; }
 
 .centered-text {
   text-align: center; }

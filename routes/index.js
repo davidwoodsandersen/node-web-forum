@@ -33,9 +33,10 @@ router.get('/', async (req, res) => {
     }));
   } catch (err) {
     console.log(err);
-    err = new HttpError(err);
+    err = new HttpError(err.message, err.code);
     res.status(err.code).render('error', {
-      message: err.message
+      message: err.message,
+      code: err.code
     });
   }
 });
@@ -67,7 +68,7 @@ router.post('/signup', mustNotBeAuthenticated, async (req, res) => {
     });
   } catch (err) {
     console.log(err);
-    err = new HttpError(err);
+    err = new HttpError(err.message, err.code);
     req.flash('error', err.message);
     res.status(err.code).redirect('/signup');
   }

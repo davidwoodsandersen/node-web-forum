@@ -18,9 +18,10 @@ router.post('/create', mustBeAuthenticated, async (req, res) => {
     res.status(201).redirect(`/posts/${req.body.post}`);
   } catch (err) {
     console.log(err);
-    err = new HttpError(err);
+    err = new HttpError(err.message, err.code);
     res.status(err.code).render('error', {
-      message: err.message
+      message: err.message,
+      code: err.code
     });
   }
 });
