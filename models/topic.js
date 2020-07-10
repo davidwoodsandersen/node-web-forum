@@ -3,10 +3,11 @@
 const db = require('../db');
 
 async function create(topicData) {
-  await db.runQuery(
+  const results = await db.runQuery(
     'INSERT INTO topic (name, description) VALUES (?, ?);',
     [topicData.name, topicData.description]
   );
+  return await getById(results.insertId);
 }
 
 async function getPopular(max) {

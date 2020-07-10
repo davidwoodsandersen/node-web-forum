@@ -1,0 +1,15 @@
+extends base.pug
+
+block content
+  aside(class='icon-aside')
+    img(src='/icons/chat.svg')
+  section
+    div(class='block')
+      h1= 'New Topic'
+      div
+        form(action='/topics/create' method='post')
+          label= 'Name'
+          input(type='text' name='name')
+          label= 'Description'
+          textarea(name='description')
+          button(type='submit')= 'Create Topic'
