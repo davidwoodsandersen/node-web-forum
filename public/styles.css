@@ -237,6 +237,14 @@ textarea {
     padding: 25px;
     line-height: 1.5; }
 
+@media (max-width: 800px) {
+  .comment .author-panel {
+    width: 100px;
+    padding: 10px; }
+  .comment .author-avatar img {
+    width: 60px;
+    height: 60px; } }
+
 form label {
   display: block;
   margin: 0 0 10px;
@@ -388,10 +396,10 @@ nav {
 
 .post {
   display: flex;
-  align-items: start;
   border: 1px solid #e6e6e6;
   border-radius: 4px; }
   .post a {
+    display: flex;
     text-decoration: none; }
   .post .author-panel {
     width: 250px;
@@ -421,23 +429,15 @@ nav {
     line-height: 1.5; }
 
 @media (max-width: 800px) {
-  .post {
-    flex-direction: column; }
-    .post .author-panel {
-      display: flex;
-      align-items: center;
-      padding: 10px;
-      border-bottom: 1px solid #e6e6e6;
-      width: 100%; }
-      .post .author-panel .author-avatar img {
-        width: 40px;
-        height: 40px;
-        margin: 0; }
-      .post .author-panel .author-username {
-        margin: 0 0 0 15px;
-        padding: 0;
-        font-size: 18px;
-        border: none; } }
+  .post .author-panel {
+    width: 100px;
+    padding: 10px; }
+    .post .author-panel .author-avatar img {
+      width: 60px;
+      height: 60px; }
+    .post .author-panel .author-username {
+      font-size: 14px;
+      overflow-wrap: break-word; } }
 
 .topic-row {
   text-decoration: none;

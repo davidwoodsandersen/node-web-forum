@@ -43,3 +43,17 @@
     line-height: 1.5;
   }
 }
+
+@media (max-width: $mobile-threshold) {
+  .comment {
+    .author-panel {
+      width: 100px;
+      padding: 10px;
+    }
+
+    .author-avatar img {
+      width: 60px;
+      height: 60px;
+    }
+  }
+}
