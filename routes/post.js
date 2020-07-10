@@ -21,10 +21,10 @@ router.get('/:id', async (req, res) => {
     }));
   } catch (err) {
     console.log(err);
-    if (!err instanceof HttpError) {
-      err = new HttpError(httpStatus.INTERNAL_SERVER_ERROR, err.message);
-    }
-    res.status(err.code).send();
+    err = new HttpError(err);
+    res.status(err.code).render('error', {
+      message: err.message
+    });
   }
 });
 

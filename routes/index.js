@@ -33,10 +33,10 @@ router.get('/', async (req, res) => {
     }));
   } catch (err) {
     console.log(err);
-    if (!err instanceof HttpError) {
-      err = new HttpError(httpStatus.INTERNAL_SERVER_ERROR, err.message);
-    }
-    res.status(err.code).send();
+    err = new HttpError(err);
+    res.status(err.code).render('error', {
+      message: err.message
+    });
   }
 });
 
@@ -67,9 +67,7 @@ router.post('/signup', mustNotBeAuthenticated, async (req, res) => {
     });
   } catch (err) {
     console.log(err);
-    if (!err instanceof HttpError) {
-      err = new HttpError(httpStatus.INTERNAL_SERVER_ERROR, err.message);
-    }
+    err = new HttpError(err);
     req.flash('error', err.message);
     res.status(err.code).redirect('/signup');
   }

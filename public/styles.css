@@ -143,6 +143,9 @@ textarea {
   justify-content: center;
   height: 100%; }
 
+.centered-text {
+  text-align: center; }
+
 .block {
   border: 1px solid #e6e6e6;
   border-radius: 4px; }
