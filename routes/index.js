@@ -51,6 +51,20 @@ router.post('/signin', mustNotBeAuthenticated, passport.authenticate('local', {
   successRedirect: '/'
 }));
 
+router.get('/signout', mustBeAuthenticated, (req, res) => {
+  try {
+    req.logout();
+    res.redirect('/');
+  } catch (err) {
+    console.log(err);
+    err = new HttpError(err.message);
+    res.status(err.code).render('error', getVars(req, {
+      message: err.message,
+      code: err.code
+    }));
+  }
+});
+
 router.get('/signup', mustNotBeAuthenticated, (req, res) => {
   res.render('signup', getVars(req));
 });
