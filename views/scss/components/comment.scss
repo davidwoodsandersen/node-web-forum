@@ -13,6 +13,7 @@
   border-radius: $default-border-radius;
 
   a {
+    display: flex;
     text-decoration: none;
   }
 
@@ -20,6 +21,7 @@
     padding: 20px;
     max-width: 150px;
     color: $dark-grey;
+    background-color: $light-grey;
   }
 
   .author-avatar img {
