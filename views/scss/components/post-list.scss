@@ -1,5 +1,16 @@
 @import "../vars";
 
+.post-list-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 0 0 20px;
+
+  h1 {
+    margin: 0;
+  }
+}
+
 .post-list.sm {
   font-size: 13px;
   line-height: 1.4;

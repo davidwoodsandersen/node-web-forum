@@ -1,0 +1,17 @@
+extends base.pug
+
+block content
+  aside(class='icon-aside')
+    img(src='/icons/chat2.svg')
+  section
+    div(class='block')
+      h1= 'New Post'
+      div
+        form(action='/posts/create' method='post')
+          input(type='hidden' name='topicId' value=topicId)
+          label= 'Title'
+          input(type='text' name='title')
+          label= 'Body'
+          textarea(name='body')
+          button(type='submit')= 'Create Post'
+

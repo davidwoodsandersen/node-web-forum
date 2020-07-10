@@ -9,6 +9,25 @@ const commentController = require('../controllers/comment');
 const getVars = require('../util').getVars;
 const router = express.Router();
 
+router.post('/create', async (req, res) => {
+  try {
+    const post = await postController.create({
+      userId: req.user.id,
+      topicId: req.body.topicId,
+      title: req.body.title,
+      body: req.body.body
+    });
+    res.status(201).redirect(`/posts/${post.id}`);
+  } catch (err) {
+    console.log(err);
+    err = new HttpError(err.message, err.code);
+    res.status(err.code).render('error', getVars(req, {
+      message: err.message,
+      code: err.code
+    }));
+  }
+});
+
 router.get('/:id', async (req, res) => {
   try {
     const post = await postController.getById(req.params.id);

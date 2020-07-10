@@ -30,6 +30,12 @@ router.post('/create', mustBeAuthenticated, async (req, res) => {
   }
 });
 
+router.get('/:id/post', mustBeAuthenticated, (req, res) => {
+  res.render('new-post', getVars(req, {
+    topicId: req.params.id
+  }));
+});
+
 router.get('/:id', async (req, res) => {
   try {
     const topic = await topicController.getById(req.params.id);

@@ -29,6 +29,21 @@ p {
   margin-bottom: 10px;
 }
 
+a.button {
+  display: inline-block;
+  padding: 12px;
+  border: 2px solid $accent-color;
+  border-radius: $default-border-radius;
+  text-decoration: none;
+  color: $accent-color;
+  font-weight: 700;
+
+  &:hover {
+    background-color: $accent-color;
+    color: $white;
+  }
+}
+
 #app {
   display: flex;
   flex-direction: column;

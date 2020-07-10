@@ -6,6 +6,11 @@ block content
       h1= topic.name
       div
         p= topic.description
+    div(class='post-list-header')
+      h1= 'Posts'
+      if signedIn
+        div
+          a(class='button' href='/topics/' + topic.id + '/post')= 'New Post'
     div(class='post-list lg')
       each post in posts
         a(href='/posts/' + post.id)

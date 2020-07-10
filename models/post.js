@@ -3,10 +3,11 @@
 const db = require('../db');
 
 async function create(postData) {
-  await db.runQuery(
+  const results = await db.runQuery(
     'INSERT INTO post (userId, topicId, title, body) VALUES (?, ?, ?, ?);',
     [postData.userId, postData.topicId, postData.title, postData.body]
   );
+  return await getById(results.insertId);
 }
 
 async function getById(id) {
@@ -32,7 +33,7 @@ async function getRecent(max) {
     FROM post p
     LEFT JOIN topic t ON t.id = p.topicId
     LEFT JOIN user u ON u.id = p.userId
-    ORDER BY p.created DESC LIMIT ?;
+    ORDER BY p.created ASC LIMIT ?;
   `, [max]);
 }
 

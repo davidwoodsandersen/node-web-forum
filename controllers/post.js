@@ -2,6 +2,10 @@
 
 const model = require('../models/post');
 
+async function create(postData) {
+  return await model.create(postData);
+}
+
 async function getRecent(max) {
   return await model.getRecent(max);
 }
@@ -19,6 +23,7 @@ async function getByTopicId(id) {
 }
 
 module.exports = {
+  create,
   getById,
   getByTopicId,
   getByUserId,
