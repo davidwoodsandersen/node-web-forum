@@ -37,6 +37,7 @@ CREATE TABLE IF NOT EXISTS comment (
 	userId int NOT NULL,
 	postId int NOT NULL,
 	body text,
+	created DATETIME DEFAULT CURRENT_TIMESTAMP,
 
 	PRIMARY KEY (id),
 	FOREIGN KEY (userId) REFERENCES user(id),

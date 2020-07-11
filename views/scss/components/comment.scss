@@ -38,9 +38,23 @@
     overflow-wrap: break-word;
   }
 
+  .comment-details {
+    flex: 1;
+  }
+
   .comment-body {
-    padding: 25px;
+    margin: 10px 15px 15px;
+    padding: 8px;
     line-height: 1.5;
+  }
+
+  .comment-created {
+    margin: 15px 15px 0;
+    padding: 8px;
+    background-color: $light-grey;
+    border-radius: $default-border-radius;
+    font-size: 13px;
+    font-weight: 700;
   }
 }
 

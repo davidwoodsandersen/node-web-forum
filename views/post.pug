@@ -9,6 +9,7 @@ block content
             img(src='/avatars/' + author.avatarId + '.svg')
           div(class='author-username')= author.username
       div(class='post-details')
+        div(class='post-created')= new Date(post.created).toLocaleString()
         div(class='title')= post.title
         div(class='body')= post.body
     each comment in comments
@@ -19,7 +20,9 @@ block content
             div(class='author-avatar')
               img(src='/avatars/' + comment.avatarId + '.svg')
             div(class='author-username')= comment.username
-        div(class='comment-body')= comment.body
+        div(class='comment-details')
+          div(class='comment-created')= new Date(comment.created).toLocaleString()
+          div(class='comment-body')= comment.body
     if signedIn
       div(class='comment-divider')
       div(class='block')
