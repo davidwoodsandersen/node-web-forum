@@ -10,7 +10,12 @@ const getVars = require('../util').getVars;
 const router = express.Router();
 
 router.get('/create', mustBeAuthenticated, (req, res) => {
-  res.render('new-topic', getVars(req));
+  res.render('new-topic', getVars(req, {
+    breadcrumb: [
+      { name: 'Topics', link: '/topics' },
+      { name: 'New Topic' }
+    ]
+  }));
 });
 
 router.post('/create', mustBeAuthenticated, async (req, res) => {
@@ -30,10 +35,25 @@ router.post('/create', mustBeAuthenticated, async (req, res) => {
   }
 });
 
-router.get('/:id/post', mustBeAuthenticated, (req, res) => {
-  res.render('new-post', getVars(req, {
-    topicId: req.params.id
-  }));
+router.get('/:id/post', mustBeAuthenticated, async (req, res) => {
+  try {
+    const topic = await topicController.getById(req.params.id);
+    res.render('new-post', getVars(req, {
+      topicId: req.params.id,
+      breadcrumb: [
+        { name: 'Topics', link: '/topics' },
+        { name: topic.name, link: `/topics/${topic.id}` },
+        { name: 'New Post' }
+      ]
+    }));
+  } catch (err) {
+    console.log(err);
+    err = new HttpError(err.message, err.code);
+    res.status(err.code).render('error', getVars(req, {
+      message: err.message,
+      code: err.code
+    }));
+  }
 });
 
 router.get('/:id', async (req, res) => {
@@ -46,6 +66,10 @@ router.get('/:id', async (req, res) => {
     res.render('topic', getVars(req, {
       topic,
       posts,
+      breadcrumb: [
+        { name: 'Topics', link: '/topics' },
+        { name: topic.id }
+      ]
     }));
   } catch (err) {
     console.log(err);

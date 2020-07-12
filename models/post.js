@@ -11,10 +11,14 @@ async function create(postData) {
 }
 
 async function getById(id) {
-  const results = await db.runQuery(
-    'SELECT * FROM post WHERE id = ?;',
-    [id]
-  );
+  const results = await db.runQuery(`
+    SELECT
+      p.*,
+      t.name AS topicName
+    FROM post p
+    LEFT JOIN topic t ON t.id = p.topicId
+    WHERE p.id = ?;
+  `, [id]);
   const post = results && results.length ? results[0] : null;
   return post;
 }

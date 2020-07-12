@@ -42,7 +42,9 @@ router.get('/', async (req, res) => {
 });
 
 router.get('/signin', mustNotBeAuthenticated, (req, res) => {
-  res.render('signin', getVars(req));
+  res.render('signin', getVars(req, {
+    breadcrumb: [{ name: 'Sign In' }]
+  }));
 });
 
 router.post('/signin', mustNotBeAuthenticated, passport.authenticate('local', {
@@ -66,7 +68,9 @@ router.get('/signout', mustBeAuthenticated, (req, res) => {
 });
 
 router.get('/signup', mustNotBeAuthenticated, (req, res) => {
-  res.render('signup', getVars(req));
+  res.render('signup', getVars(req, {
+    breadcrumb: [{ name: 'Sign Up' }]
+  }));
 });
 
 router.post('/signup', mustNotBeAuthenticated, async (req, res) => {

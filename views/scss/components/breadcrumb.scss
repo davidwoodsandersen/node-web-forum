@@ -1,0 +1,19 @@
+@import "../vars";
+
+.breadcrumb {
+  width: 100%;
+  max-width: $content-max-width;
+  margin: 20px auto 0;
+
+  > div {
+    padding: 12px;
+    margin: 0 20px;
+    background-color: $light-grey;
+    border-radius: $default-border-radius;
+    font-size: 14px;
+  }
+
+  a {
+    color: $accent-color;
+  }
+}

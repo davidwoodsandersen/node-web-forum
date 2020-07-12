@@ -205,6 +205,19 @@ textarea {
     padding: 15px; }
 
 
+.breadcrumb {
+  width: 100%;
+  max-width: 1200px;
+  margin: 20px auto 0; }
+  .breadcrumb > div {
+    padding: 12px;
+    margin: 0 20px;
+    background-color: whitesmoke;
+    border-radius: 4px;
+    font-size: 14px; }
+  .breadcrumb a {
+    color: #4f0eea; }
+
 .comment-divider {
   width: 90%;
   height: 40px;

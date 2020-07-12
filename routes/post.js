@@ -40,6 +40,11 @@ router.get('/:id', async (req, res) => {
       post,
       author,
       comments,
+      breadcrumb: [
+        { name: 'Topics', link: '/topics' },
+        { name: post.topicName, link: `/topics/${post.topicId}` },
+        { name: post.title }
+      ]
     }))
   } catch (err) {
     console.log(err);

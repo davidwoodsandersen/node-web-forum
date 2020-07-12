@@ -18,6 +18,10 @@ router.get('/:id', async (req, res) => {
     res.render('user', getVars(req, {
       user,
       posts,
+      breadcrumb: [
+        { name: 'Users', link: '/users' },
+        { name: user.username }
+      ]
     }));
   } catch (err) {
     console.log(err);

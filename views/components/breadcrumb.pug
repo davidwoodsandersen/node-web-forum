@@ -1,0 +1,12 @@
+div(class='breadcrumb')
+  div
+    if !breadcrumb
+      span= 'Home'
+    else
+      a(href='/')= 'Home'
+      each item in breadcrumb
+        span= ' / '
+        if !!item.link
+          a(href=item.link)= item.name
+        else
+          span= item.name
