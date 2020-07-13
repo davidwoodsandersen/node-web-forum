@@ -9,6 +9,23 @@ const mustBeAuthenticated = require('../util').mustBeAuthenticated;
 const getVars = require('../util').getVars;
 const router = express.Router();
 
+router.get('/', async (req, res) => {
+  try {
+    const topics = await topicController.getAll();
+    res.render('topics', getVars(req, {
+      topics,
+      breadcrumb: [{ name: 'Topics' }]
+    }));
+  } catch (err) {
+    console.log(err);
+    err = new HttpError(err.message, err.code);
+    res.status(err.code).render('error', getVars(req, {
+      message: err.message,
+      code: err.code
+    }));
+  }
+});
+
 router.get('/create', mustBeAuthenticated, (req, res) => {
   res.render('new-topic', getVars(req, {
     breadcrumb: [
@@ -68,7 +85,7 @@ router.get('/:id', async (req, res) => {
       posts,
       breadcrumb: [
         { name: 'Topics', link: '/topics' },
-        { name: topic.id }
+        { name: topic.name }
       ]
     }));
   } catch (err) {

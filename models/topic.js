@@ -10,6 +10,18 @@ async function create(topicData) {
   return await getById(results.insertId);
 }
 
+async function getAll() {
+  return await db.runQuery(`
+    SELECT
+      t.*,
+      COUNT(*) AS posts
+    FROM topic t
+    LEFT JOIN post p ON t.id = p.topicId
+    GROUP BY t.id
+    ORDER BY t.name ASC;
+  `);
+}
+
 async function getPopular(max) {
   return await db.runQuery(`
     SELECT
@@ -35,6 +47,7 @@ async function getById(id) {
 
 module.exports = {
   create,
+  getAll,
   getById,
   getPopular,
 };

@@ -1,0 +1,16 @@
+extends base.pug
+
+block content
+  div(class='full-width')
+    h1= 'Topics'
+    div(class='topic-list')
+      each topic in topics
+        a(class='topic-row' href='/topics/' + topic.id)
+          div
+            div(class='topic-icon')
+              img(src='/icons/chat.svg')
+            div(class='details')
+              h2= topic.name
+              p= topic.description
+            div(class='posts')
+              span= topic.posts
