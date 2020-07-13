@@ -1,0 +1,12 @@
+extends base.pug
+
+block content
+  div(class='full-width')
+    h1= 'Users'
+    div(class='user-list')
+      each user in users
+        a(class='user-row' href='/users/' + user.id)
+          div
+            div(class='avatar')
+              img(src='/avatars/' + user.avatarId + '.svg')
+            div(class='username')= user.username

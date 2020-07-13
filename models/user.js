@@ -19,6 +19,13 @@ async function findByUsername(username) {
   return user;
 }
 
+async function getAll() {
+  return await db.runQuery(`
+    SELECT * FROM user
+    ORDER BY username ASC;
+  `);
+}
+
 async function getById(id) {
   const results = await db.runQuery(`
     SELECT id, username, password, avatarId
@@ -45,6 +52,7 @@ async function getTopContributors(max) {
 module.exports = {
   create,
   findByUsername,
+  getAll,
   getById,
   getTopContributors,
 };

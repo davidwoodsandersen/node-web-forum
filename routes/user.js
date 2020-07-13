@@ -8,6 +8,23 @@ const postController = require('../controllers/post');
 const getVars = require('../util').getVars;
 const router = express.Router();
 
+router.get('/', async (req, res) => {
+  try {
+    const users = await userController.getAll();
+    res.render('users', getVars(req, {
+      users,
+      breadcrumb: [{ name: 'Users' }]
+    }));
+  } catch (err) {
+    console.log(err);
+    err = new HttpError(err.message, err.code);
+    res.status(err.code).render('error', getVars(req, {
+      message: err.message,
+      code: err.code
+    }));
+  }
+});
+
 router.get('/:id', async (req, res) => {
   try {
     const user = await userController.getById(req.params.id);
